@@ -1,7 +1,6 @@
 package edu.pingpong.mordorcommand.domain.treatments;
 
 import java.util.Set;
-import java.util.Iterator;
 
 import edu.pingpong.mordorcommand.domain.interfaces.Order;
 import edu.pingpong.mordorcommand.domain.interfaces.OrderTreatment;
@@ -37,15 +36,6 @@ public class MultipleOrderTreatment implements OrderTreatment{
 
     public void setTotalWeight() {
         this.totalWeight = orderSet.stream().map(Order::weight).reduce(0, Integer::sum);
-        // orderSet.stream().forEach(o -> this.totalWeight += o.weight());
-        // this.orderSet.forEach(o -> this.totalWeight += o.weight());
-        // this.totalWeight += orderSet.forEach(o -> o.weight());
-        // this.totalWeight = orderSet.stream().map(o -> o.weight()).reduce(0, Integer::weight);
-        // this.totalWeight = this.orderSet.stream().map(orderSet::weight).reduce(0, Integer::sum)
-        // Iterator<Order> it = orderSet.iterator();
-        // while (it.hasNext()) {
-        //     this.totalWeight += it.next().weight();
-        // }
     }
 
     public void setTotalParcels() {
