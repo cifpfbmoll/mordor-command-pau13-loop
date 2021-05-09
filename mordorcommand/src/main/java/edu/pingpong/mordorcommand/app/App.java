@@ -1,13 +1,16 @@
 package edu.pingpong.mordorcommand.app;
 
-// import org.mvpigs.commandpattern.interfaces.Pedido;
-// import org.mvpigs.commandpattern.interfaces.PedidoPeligroso;
-// import org.mvpigs.commandpattern.interfaces.TratamientoPedido;
-// import org.mvpigs.commandpattern.pedidos.PedidoInternacional;
-// import org.mvpigs.commandpattern.pedidos.PedidoPeligrosoOrden;
-// import org.mvpigs.commandpattern.procesadores.Oficina;
-// import org.mvpigs.commandpattern.tratamientos.TratamientoPedidoInternacional;
-// import org.mvpigs.commandpattern.tratamientos.TratamientoPedidoPeligroso;
+import edu.pingpong.mordorcommand.domain.interfaces.DangerousOrder;
+import edu.pingpong.mordorcommand.domain.interfaces.Order;
+import edu.pingpong.mordorcommand.domain.interfaces.OrderTreatment;
+import edu.pingpong.mordorcommand.domain.interfaces.Processor;
+import edu.pingpong.mordorcommand.domain.orders.DangeorusOrder;
+import edu.pingpong.mordorcommand.domain.orders.InternationalOrder;
+import edu.pingpong.mordorcommand.domain.orders.NationalOrder;
+import edu.pingpong.mordorcommand.domain.processors.Office;
+import edu.pingpong.mordorcommand.domain.treatments.DangerousOrderTreatment;
+import edu.pingpong.mordorcommand.domain.treatments.InternationalOrderTreatment;
+import edu.pingpong.mordorcommand.domain.treatments.MultipleOrderTreatment;
 
 /**
  * Crea una oficina que procesa pedidos.
@@ -50,13 +53,13 @@ public class App {
 
     public static void main(String[] args) {
 
-        // Oficina oficina = new Oficina();
+        Office office = new Office();
 
-        // Pedido pedido = new PedidoInternacional("Comarca", 10);
-        // TratamientoPedido tratamientoInt = new TratamientoPedidoInternacional(
-        //                                             (PedidoInternacional) pedido);
+        Order order = new InternationalOrder("Comarca", 10);
+        OrderTreatment treatmentOrd = new InternationalOrderTreatment(
+                                                    (InternationalOrder) order);
         
-        // System.out.println(oficina.printarStatus(oficina.procesa(tratamientoInt), pedido));
+        System.out.println(office.printStatus(office.process(treatmentOrd), order));
 
         // pedido = new PedidoInternacional("Mordor", 10);
         // tratamientoInt = new TratamientoPedidoInternacional((PedidoInternacional) pedido);
