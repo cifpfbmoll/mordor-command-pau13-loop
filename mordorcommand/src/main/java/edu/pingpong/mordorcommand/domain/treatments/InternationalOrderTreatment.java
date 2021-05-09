@@ -11,6 +11,7 @@ public class InternationalOrderTreatment implements OrderTreatment{
         this.intOrder = intOrder;
     }
 
+    @Override
     public boolean treat() {
         return ! intOrder.destination().equals("Mordor");
     }

@@ -11,6 +11,7 @@ public class Office implements Processor{
 
     public Office() {};
     
+    @Override
     public boolean process(OrderTreatment oTreatment) {
         return oTreatment.treat();
     }

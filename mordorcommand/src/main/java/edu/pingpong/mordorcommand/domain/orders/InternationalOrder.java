@@ -16,10 +16,12 @@ public class InternationalOrder implements Order {
         this.id = UUID.randomUUID().toString();
     }
 
+    @Override
     public int weight() {
         return this.weight;
     }
 
+    @Override
     public String destination() {
         return this.destination;
     }

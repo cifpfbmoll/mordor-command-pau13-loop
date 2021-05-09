@@ -20,6 +20,7 @@ public class MultipleOrderTreatment implements OrderTreatment{
         this.orderSet = orderSet;
     }
 
+    @Override
     public boolean treat() {
         setTotalWeight();
         setTotalParcels();

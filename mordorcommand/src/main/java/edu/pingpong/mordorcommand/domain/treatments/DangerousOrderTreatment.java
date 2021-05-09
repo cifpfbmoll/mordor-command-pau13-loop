@@ -11,6 +11,7 @@ public class DangerousOrderTreatment implements OrderTreatment{
         this.order = order;
     }
 
+    @Override
     public boolean treat() {
         return ! order.instructions().equals("No ponerselo en el dedo");
     }

@@ -17,14 +17,17 @@ public class DangeorusOrderOrder implements DangerousOrder {
         this.id = UUID.randomUUID().toString();
     }
 
+    @Override
     public int weight() {
         return this.weight;
     }
 
+    @Override
     public String instructions() {
         return this.instructions;
     }
 
+    @Override
     public String destination() {
         return this.destination;
     }

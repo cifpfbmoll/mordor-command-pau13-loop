@@ -17,10 +17,12 @@ public class NationalOrder implements Order {
         this.weight = weight;
     }
 
+    @Override
     public int weight() {
         return this.weight;
     }
 
+    @Override
     public String destination() {
         return this.destination;
     }
