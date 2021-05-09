@@ -8,14 +8,14 @@
   <artifactId>mordorcommand</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>mordorcommand</name>
+  <name>MordorCommand</name>
   <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+  <url>https://github.com/cifpfbmoll/mordor-command-pau13-loop</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
   </properties>
 
   <dependencies>
@@ -30,6 +30,29 @@
   <build>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
+      <!--JaCoCo pluguin for Testing-->
+        <plugin>
+          <groupId>org.jacoco</groupId>
+          <artifactId>jacoco-maven-plugin</artifactId>
+          <version>0.8.4</version>
+          <executions>
+            <execution>
+              <id>start-agent</id>
+              <goals>
+                <goal>prepare-agent</goal>
+              </goals>
+            </execution>
+            <execution>
+              <id>generate-report</id>
+              <goals>
+                <goal>report</goal>
+              </goals>
+              <configuration>
+                <title>Coverage with JaCoCo</title>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
         <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
         <plugin>
           <artifactId>maven-clean-plugin</artifactId>
@@ -51,6 +74,22 @@
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
           <version>3.0.2</version>
+          <!-- Configuration Section to generate an executable jar from the app-->
+    <configuration>
+        <archive>
+            <manifest>
+                <addClasspath>
+                true
+                </addClasspath>
+                <mainClass>
+                  edu.pingpong.mordorcommand.app
+                </mainClass>
+            </manifest>
+        <manifestEntries>
+              <url>${project.url}</url>
+        </manifestEntries>
+      </archive>
+    </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-install-plugin</artifactId>
