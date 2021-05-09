@@ -4,7 +4,7 @@ import edu.pingpong.mordorcommand.domain.interfaces.DangerousOrder;
 import edu.pingpong.mordorcommand.domain.interfaces.Order;
 import edu.pingpong.mordorcommand.domain.interfaces.OrderTreatment;
 import edu.pingpong.mordorcommand.domain.interfaces.Processor;
-import edu.pingpong.mordorcommand.domain.orders.DangeorusOrder;
+import edu.pingpong.mordorcommand.domain.orders.DangeorusOrderOrder;
 import edu.pingpong.mordorcommand.domain.orders.InternationalOrder;
 import edu.pingpong.mordorcommand.domain.orders.NationalOrder;
 import edu.pingpong.mordorcommand.domain.processors.Office;
@@ -13,10 +13,10 @@ import edu.pingpong.mordorcommand.domain.treatments.InternationalOrderTreatment;
 import edu.pingpong.mordorcommand.domain.treatments.MultipleOrderTreatment;
 
 /**
- * Crea una oficina que procesa pedidos.
+ * Crea una office que procesa pedidos.
  * 
- * En funcion de si el tratamiento del pedido es posible o no
- * la oficina procesa el pedido (true /false) 
+ * En funcion de si el tratamiento del order es posible o no
+ * la office procesa el order (true /false) 
  * e informa de su estado (aceptado /rechazado).
  * 
  * Como los pedidos pueden ser de multiples tipos, 
@@ -27,9 +27,9 @@ import edu.pingpong.mordorcommand.domain.treatments.MultipleOrderTreatment;
  * Consulta el manual de referencia para ver un ejemplo del patron.
  * 
  * Aplicando el patron COMMAND no procesaremos pedidos,
- * sino que le pasaremos a la oficina /procesador
- * el tipo de tratamiento que ha de aplicar a cada pedido,
- * y sera el propio pedido el que decida como debe ser tratado.
+ * sino que le pasaremos a la office /procesador
+ * el tipo de tratamiento que ha de aplicar a cada order,
+ * y sera el propio order el que decida como debe ser tratado.
  * 
  * PASA LOS CASOS TEST PROPUESTOS y utilizalos como guia para el desarrollo.
  * NO PUEDES MODIFICAR EL CODIGO DE LOS CASOS TEST 
@@ -61,22 +61,22 @@ public class App {
         
         System.out.println(office.printStatus(office.process(treatmentOrd), order));
 
-        // pedido = new PedidoInternacional("Mordor", 10);
-        // tratamientoInt = new TratamientoPedidoInternacional((PedidoInternacional) pedido);
+        order = new InternationalOrder("Mordor", 10);
+        treatmentOrd = new InternationalOrderTreatment((InternationalOrder) order);
         
-        // System.out.println(oficina.printarStatus(oficina.procesa(tratamientoInt), pedido));
+        System.out.println(office.printStatus(office.process(treatmentOrd), order));
 
-        // pedido = new PedidoPeligrosoOrden("Cima de los vientos", 
-        //                                   "No urgarse en las uñas con este puñal");
-        // TratamientoPedido peligroso = new TratamientoPedidoPeligroso((PedidoPeligroso) pedido);
+        order = new DangeorusOrderOrder("Cima de los vientos", 
+                                          "No urgarse en las uñas con este puñal");
+        OrderTreatment peligroso = new DangerousOrderTreatment((DangeorusOrderOrder) order);
         
-        // System.out.println(oficina.printarStatus(oficina.procesa(peligroso), pedido));
+        System.out.println(office.printStatus(office.process(peligroso), order));
 
-        // pedido = new PedidoPeligrosoOrden("Monte del destino", 
-        //                                   "No ponerselo en el dedo");
-        // peligroso = new TratamientoPedidoPeligroso((PedidoPeligroso) pedido);
+        order = new DangeorusOrderOrder("Monte del destino", 
+                                          "No ponerselo en el dedo");
+        peligroso = new DangerousOrderTreatment((DangeorusOrderOrder) order);
         
-        // System.out.println(oficina.printarStatus(oficina.procesa(peligroso), pedido));
+        System.out.println(office.printStatus(office.process(peligroso), order));
         
         /**
          * Los pedidos multiples se completan en el ultimo de los casos test 
