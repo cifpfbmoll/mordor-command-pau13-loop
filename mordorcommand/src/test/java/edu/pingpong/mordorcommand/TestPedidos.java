@@ -12,17 +12,17 @@ import java.util.List;
 import java.util.Set;
 import org.junit.Test;
 
-// import org.mvpigs.commandpattern.interfaces.Pedido;
-// import org.mvpigs.commandpattern.interfaces.PedidoPeligroso;
-// import org.mvpigs.commandpattern.interfaces.Procesador;
-// import org.mvpigs.commandpattern.interfaces.TratamientoPedido;
-// import org.mvpigs.commandpattern.pedidos.PedidoInternacional;
-// import org.mvpigs.commandpattern.pedidos.PedidoNacional;
-// import org.mvpigs.commandpattern.pedidos.PedidoPeligrosoOrden;
-// import org.mvpigs.commandpattern.procesadores.Oficina;
-// import org.mvpigs.commandpattern.tratamientos.TratamientoPedidoInternacional;
-// import org.mvpigs.commandpattern.tratamientos.TratamientoPedidoMultiple;
-// import org.mvpigs.commandpattern.tratamientos.TratamientoPedidoPeligroso;
+import edu.pingpong.mordorcommand.domain.interfaces.DangerousOrder;
+import edu.pingpong.mordorcommand.domain.interfaces.Order;
+import edu.pingpong.mordorcommand.domain.interfaces.OrderTreatment;
+import edu.pingpong.mordorcommand.domain.interfaces.Processor;
+import edu.pingpong.mordorcommand.domain.orders.DangeorusOrder;
+import edu.pingpong.mordorcommand.domain.orders.InternationalOrder;
+import edu.pingpong.mordorcommand.domain.orders.NationalOrder;
+import edu.pingpong.mordorcommand.domain.processors.Office;
+import edu.pingpong.mordorcommand.domain.treatments.DangerousOrderTreatment;
+import edu.pingpong.mordorcommand.domain.treatments.InternationalOrderTreatment;
+import edu.pingpong.mordorcommand.domain.treatments.MultipleOrderTreatment;
 
 /**
  * NO PUEDES MODIFICAR EL CODIGO DE LOS CASOS TEST 
@@ -39,17 +39,17 @@ public class TestPedidos {
      * Crea las clases necesarias que se requieren en los casos test
      * respetando los constructores que se exigen.
      */
-    // @Test
-	// public void test_Mordor() {	
+    @Test
+	public void test_Mordor() {	
 
-    //     Pedido pedidoInt = new PedidoInternacional("Mordor", 100);
-    //     assertEquals("Mordor", pedidoInt.destino());
+        Order  orderInt = new InternationalOrder("Mordor", 100);
+        assertEquals("Mordor", orderInt.destination());
 
-	// 	TratamientoPedido tratamientoKO = new TratamientoPedidoInternacional(
-    //                                                 (PedidoInternacional) pedidoInt);
-    //     assertNotNull(tratamientoKO);
-    //     assertFalse(tratamientoKO.tratar());			
-	// }
+		OrderTreatment treatmentKO = new InternationalOrderTreatment(
+                                                    (InternationalOrder) orderInt);
+        assertNotNull(treatmentKO);
+        assertFalse(treatmentKO.treat());			
+	}
 
 	// @Test
 	// public void test_Comarca() {
