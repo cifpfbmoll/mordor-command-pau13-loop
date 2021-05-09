@@ -205,18 +205,17 @@ public class TestPedidos {
     * Pasasela a TratamientoPedidosMultiple en su constructor.
     */
 
-    Set<Pedido> pedidos = new HashSet<>();
-    List<String> destinos = Arrays.asList("Gondor", "Minas Tirith", "Rohan");
-    List<Integer> pesos = Arrays.asList(10, 10, 10);
+    Set<Order> orders = new HashSet<>();
+    List<String> destinations = Arrays.asList("Gondor", "Minas Tirith", "Rohan");
+    List<Integer> weights = Arrays.asList(10, 10, 10);
 
-    for (int i=0; i<destinos.size(); i++) {
-    pedidos.add(new PedidoNacional(destinos.get(i), pesos.get(i)));
+    for (int i=0; i<destinations.size(); i++) {
+    orders.add(new NationalOrder(destinations.get(i), weights.get(i)));
     }
-    assertEquals(3, pedidos.size());
+    assertEquals(3, orders.size());
 
-    TratamientoPedidoMultiple pedidosMult = new
-    TratamientoPedidoMultiple(pedidos);
-    assertNotNull(pedidosMult);
+    MultipleOrderTreatment multOrders = new MultipleOrderTreatment(orders);
+    assertNotNull(multOrders);
 
     /**
     * Completa los metodos del pedido multiple.
@@ -232,15 +231,15 @@ public class TestPedidos {
     *
     */
 
-    pedidosMult.calcularTotalBultos();
-    assertEquals(3, pedidosMult.getNumBultos(), 0);
+    multOrders.setTotalParcels();
+    assertEquals(3, multOrders.getNumParcels(), 0);
 
-    pedidosMult.calcularPesoTotal();
-    assertEquals(30, pedidosMult.getPesoTotal(), 0);
+    multOrders.setTotalWeight();
+    assertEquals(30, multOrders.getTotalWeight(), 0);
 
-    /**
-    * Trata el pedido multiple.
-    */
-    assertTrue(pedidosMult.tratar());
+    // /**
+    // * Trata el pedido multiple.
+    // */
+    assertTrue(multOrders.treat());
     }
 }
