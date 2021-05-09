@@ -166,7 +166,7 @@ public class TestPedidos {
     InternationalOrderTreatment(toComarcaWithLove);
 
     assertTrue(post.process(onrderInt));
-    assertEquals("Comarca ACEPTADO", post.printStatus(
+    assertEquals("Comarca ACCEPTED", post.printStatus(
     post.process(onrderInt), toComarcaWithLove));
 
     DangerousOrder dangerousOrder = new DangeorusOrderOrder("Monte del destino",
@@ -175,11 +175,10 @@ public class TestPedidos {
     DangerousOrderTreatment(dangerousOrder);
 
     assertFalse(post.process(treatmentOK));
-    assertEquals("Monte del destino RECHAZADO", post.printStatus(
+    assertEquals("Monte del destino REJECTED", post.printStatus(
     post.process(treatmentOK),
     dangerousOrder));
-
-    // }
+    }
 
     // /**
     // * Crea una clase TratamientoPedidoMultiple que permita tratar
@@ -195,53 +194,53 @@ public class TestPedidos {
     // * respetando los constructores que se exigen.
     // */
 
-    // @Test
-    // public void test_tratamiento_pedido_multiple_tratar() {
+    @Test
+    public void test_tratamiento_pedido_multiple_tratar() {
 
-    // /**
-    // * Crea una colección de tres pedidos nacionales, a "Gondor", "Minas Tirith",
-    // "Rohan"
-    // * con un peso de 10 cada uno.
-    // *
-    // * Pasasela a TratamientoPedidosMultiple en su constructor.
-    // */
+    /**
+    * Crea una colección de tres pedidos nacionales, a "Gondor", "Minas Tirith",
+    "Rohan"
+    * con un peso de 10 cada uno.
+    *
+    * Pasasela a TratamientoPedidosMultiple en su constructor.
+    */
 
-    // Set<Pedido> pedidos = new HashSet<>();
-    // List<String> destinos = Arrays.asList("Gondor", "Minas Tirith", "Rohan");
-    // List<Integer> pesos = Arrays.asList(10, 10, 10);
+    Set<Pedido> pedidos = new HashSet<>();
+    List<String> destinos = Arrays.asList("Gondor", "Minas Tirith", "Rohan");
+    List<Integer> pesos = Arrays.asList(10, 10, 10);
 
-    // for (int i=0; i<destinos.size(); i++) {
-    // pedidos.add(new PedidoNacional(destinos.get(i), pesos.get(i)));
-    // }
-    // assertEquals(3, pedidos.size());
+    for (int i=0; i<destinos.size(); i++) {
+    pedidos.add(new PedidoNacional(destinos.get(i), pesos.get(i)));
+    }
+    assertEquals(3, pedidos.size());
 
-    // TratamientoPedidoMultiple pedidosMult = new
-    // TratamientoPedidoMultiple(pedidos);
-    // assertNotNull(pedidosMult);
+    TratamientoPedidoMultiple pedidosMult = new
+    TratamientoPedidoMultiple(pedidos);
+    assertNotNull(pedidosMult);
 
-    // /**
-    // * Completa los metodos del pedido multiple.
-    // * Se valorara el uso de streams.
-    // *
-    // * calcularTotalBultos
-    // * @param void
-    // * @return void
-    // *
-    // * calcularPesoTotal
-    // * @param void
-    // * @return void
-    // *
-    // */
+    /**
+    * Completa los metodos del pedido multiple.
+    * Se valorara el uso de streams.
+    *
+    * calcularTotalBultos
+    * @param void
+    * @return void
+    *
+    * calcularPesoTotal
+    * @param void
+    * @return void
+    *
+    */
 
-    // pedidosMult.calcularTotalBultos();
-    // assertEquals(3, pedidosMult.getNumBultos(), 0);
+    pedidosMult.calcularTotalBultos();
+    assertEquals(3, pedidosMult.getNumBultos(), 0);
 
-    // pedidosMult.calcularPesoTotal();
-    // assertEquals(30, pedidosMult.getPesoTotal(), 0);
+    pedidosMult.calcularPesoTotal();
+    assertEquals(30, pedidosMult.getPesoTotal(), 0);
 
-    // /**
-    // * Trata el pedido multiple.
-    // */
-    // assertTrue(pedidosMult.tratar());
-    // }
+    /**
+    * Trata el pedido multiple.
+    */
+    assertTrue(pedidosMult.tratar());
+    }
 }
