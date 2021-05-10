@@ -1,4 +1,4 @@
-# Fast Break Truck
+# Mordor Command Pattern
 
 > In this repository you'll find **Mordor Command Pattern**. This kata is the perfect introduction to make your first pattern design to develop your application. The best goal of this kata is that you will have a wide range of knowledge of the creational design patterns. Feel free to try to complete this kata, to complete this kata you just need to follow the UML Diagram to know how the application is connected and you just have to copy and paste the test cases and develop your software reaching each test case like if they were the user stories. The Command Pattern is a behavioural pattern, and you can check the link to get more information about it. 
 
