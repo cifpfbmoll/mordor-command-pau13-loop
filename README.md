@@ -82,8 +82,7 @@ My opinion about the Command Pattern has been actually really great. I felt real
 
 ## UML Diagram
 
-![UML Diagram](./fastbreaktruck/doc/UMLDiagram.jpg "UML")
-
+![UML Diagram](./mordorcommand/doc/UMLDiagram.jpg "UML")
 ---
 
 **[⬆ back to top](#table-of-contents)**
