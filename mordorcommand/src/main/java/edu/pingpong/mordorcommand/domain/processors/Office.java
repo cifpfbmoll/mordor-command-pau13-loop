@@ -24,21 +24,5 @@ public class Office implements Processor{
 
                     formatter.format("%1$s %2$s", order.destination(), Status.ACCEPTED.name()).toString() :
                     formatter.format("%1$s %2$s", order.destination(), Status.REJECTED.name()).toString();
-
-        // formatter.format("\nThe order with a destination to %1$s and a weight of %2$s has been: %3$s", order.destination(), order.weight(), Status.ACCEPTED.name()).toString()
-        // :
-
-        // formatter.format("\nThe order with a destination to %1$s and a weight of %2$s has been: %3$s", order.destination(), order.weight(), Status.REJECTED.name()).toString();
-
-        // String accepted = formatter.format("\nThe order with a destination to %1$s and a weight of %2$s has been: %3$s", order.destination(), order.weight(), Status.ACCEPTED.name()).toString();
-
-        // String rejected = formatter.format("\nThe order with a destination to %1$s and a weight of %2$s has been: %3$s", order.destination(), order.weight(), Status.REJECTED.name()).toString();
-
-        // formatter.close();
-
-        // return status ? accepted : rejected;
-        // return status? 
-        // order.destination() + " " + Status.ACCEPTED.name():
-        // order.destination() + " " + Status.REJECTED.name();
     }
 }
