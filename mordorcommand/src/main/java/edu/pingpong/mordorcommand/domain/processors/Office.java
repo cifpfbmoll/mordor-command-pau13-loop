@@ -20,9 +20,12 @@ public class Office implements Processor{
         StringBuilder sb = new StringBuilder();
         Formatter formatter = new Formatter(sb);
 
-        return status ?
+        String statusOrder = status
+                ? formatter.format("%1$s %2$s", order.destination(), Status.ACCEPTED.name()).toString()
+                : formatter.format("%1$s %2$s", order.destination(), Status.REJECTED.name()).toString();
 
-                    formatter.format("%1$s %2$s", order.destination(), Status.ACCEPTED.name()).toString() :
-                    formatter.format("%1$s %2$s", order.destination(), Status.REJECTED.name()).toString();
+        formatter.close();
+
+        return statusOrder;
     }
 }
