@@ -36,7 +36,8 @@ public class MultipleOrderTreatment implements OrderTreatment{
     }
 
     public void setTotalWeight() {
-        this.totalWeight = orderSet.stream().map(Order::weight).reduce(0, Integer::sum);
+        this.totalWeight = orderSet.stream().mapToInt(Order::weight).sum();
+        // this.totalWeight = orderSet.stream().map(Order::weight).reduce(0, Integer::sum);
         // orderSet.stream().forEach(o -> this.totalWeight += o.weight());
         // this.orderSet.forEach(o -> this.totalWeight += o.weight());
         // this.totalWeight += orderSet.forEach(o -> o.weight());
